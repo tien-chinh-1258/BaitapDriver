@@ -1,0 +1,22 @@
+# Tên file thực thi
+TARGET = ads_reader
+
+# Các file nguồn
+SRC = main.c ads1115.c
+
+# File header
+HDR = ads1115.h
+
+# Trình biên dịch và tùy chọn
+CC = gcc
+CFLAGS = -Wall -O2
+
+# Build
+all: $(TARGET)
+
+$(TARGET): $(SRC) $(HDR)
+	$(CC) $(CFLAGS) -o $(TARGET) $(SRC)
+
+# Clean
+clean:
+	rm -f $(TARGET)
