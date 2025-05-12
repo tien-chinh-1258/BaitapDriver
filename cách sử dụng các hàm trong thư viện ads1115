@@ -1,0 +1,26 @@
+1. ads1115_init(...)
+    int ads1115_init(ADS1115 *dev, const char *i2c_dev_path, uint8_t addr);
+Mục đích:
+Mở giao tiếp với thiết bị ADS1115 qua I2C.
+Cách dùng:
+ADS1115 adc;
+ads1115_init(&adc, "/dev/i2c-1", 0x48);
+i2c_addr: địa chỉ I2C của ADS1115 (thường là 0x48, 0x49, 0x4A hoặc 0x4B tùy chân ADDR).
+
+2. ads1115_read_single_ended(...)
+    int ads1115_read_single_ended(ADS1115 *dev, uint8_t channel);
+Mục đích:
+Đọc giá trị ADC của 1 trong 4 kênh đơn (AIN0 đến AIN3).
+channel từ 0 đến 3 tương ứng với AIN0 → AIN3.
+Cách dùng:
+int raw_value = ads1115_read_single_ended(&adc, 0); // đọc AIN0
+float voltage = (raw_value * 2.048f) / 32768.0f;    // tính điện áp nếu PGA = ±2.048V
+Trả về:
+Số nguyên 16-bit (từ -32768 đến +32767)
+
+3. ads1115_close(...)
+     void ads1115_close(ADS1115 *dev);
+Mục đích:
+Đóng kết nối I2C (giải phóng tài nguyên).
+Cách dùng:
+ads1115_close(&adc);
