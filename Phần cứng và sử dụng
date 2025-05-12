@@ -1,0 +1,16 @@
+ Kết nối phần cứng ADS1115 với Raspberry Pi
+ADS1115 pin	Raspberry Pi pin
+VDD	3.3V (pin 1)
+GND	GND (pin 6)
+SDA	SDA (GPIO2, pin 3)
+SCL	SCL (GPIO3, pin 5)
+ADDR	GND (mặc định địa chỉ 0x48)
+
+Bước 1: Tạo cấu trúc thư mục thư viện
+mkdir -p ads1115_project/
+
+Bước 2: thả file code theo đường dẫn
+ads1115_project/Makefile
+ads1115_project/ads1115.h
+ads1115_project/ads1115.c
+ads1115_project/main.c
