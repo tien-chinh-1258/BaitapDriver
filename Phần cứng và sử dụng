@@ -14,3 +14,17 @@ ads1115_project/Makefile
 ads1115_project/ads1115.h
 ads1115_project/ads1115.c
 ads1115_project/main.c
+
+Bước 3: Cách sử dụng
+cd ads1115_project
+sudo make        # biên dịch
+sudo ./ads_reader  # chạy thử
+
+#Nếu muốn cài như thư viện hệ thống (toàn cục)
+cd ads1115_project
+sudo cp ads1115.h /usr/local/include/
+sudo cp ads1115.c /usr/local/src/ads1115.c
+
+#Biên dịch thành object file hoặc static library
+sudo gcc -c -o /usr/local/lib/ads1115.o /usr/local/src/ads1115.c
+
